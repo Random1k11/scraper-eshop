@@ -1,12 +1,12 @@
-Активируйте виртуальное окружение
+Activate the virtual environment
 
 source venv/bin/activate
 
 pip install -r requirements.txt
 
-В файле config.py укажите настройки для парсера и базы данных.
+In the config.py Specify the settings for the parser and database.
 
-Запустите парсер командой
+Start the parser with the command
 
 python run_unident.py
 
