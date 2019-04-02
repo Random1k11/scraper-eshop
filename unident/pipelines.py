@@ -32,7 +32,6 @@ class UnidentSpiderPipeline(object):
         productDB.CodeProduct  = item["CodeProduct"]
         productDB.CodeProducer = item["CodeProducer"]
         productDB.Description  = item["Description"]
-        productDB.Title        = item["Title"]
 
         try:
             if check_existence_row_in_db(productDB.CodeProduct) == None:
