@@ -31,6 +31,7 @@ Session = sessionmaker(bind=engine)
 Session.configure(bind=engine)
 session = Session()
 
+
 def check_existence_row_in_db(CodeProduct):
     try:
         p = session.query(Product).filter(Product.CodeProduct == CodeProduct).scalar()
@@ -40,18 +41,11 @@ def check_existence_row_in_db(CodeProduct):
         p = session.query(Product).filter(Product.CodeProduct == CodeProduct).scalar()
         return p
 
+    
 def get_price_from_databse(CodeProduct):
-    try:
-        p = session.query(Product).filter(Product.CodeProduct == CodeProduct).first()
-        return p.Price
-    except:
-        logger.exception('Ошибка при получении информации о цене товара: ' + str(CodeProduct))
-        session.rollback()
-        try:
-            p = session.query(Product).filter(Product.CodeProduct == CodeProduct).one()
-            return p.Price
-        except:
-            pass
+    p = session.query(Product).filter(Product.CodeProduct == CodeProduct).first()
+    return p.Price
+
 
 def insert_row_to_history_database(CodeProduct):
     try:
